@@ -61,9 +61,9 @@ To add the RILF.trk and LILF.trk structures from two different TrackVis files, t
 The screenshots show the results.
 
 {| class="wikitable" valign="top"
-| [[File:RILF.png|thumb|left|300px|Tracks of the RILF structure segmented.]]
-| [[File:LILF.png|thumb|left|300px|Tracks of the LILF structure segmented.]]
-| [[File:sum.png|thumb|left|300px|After running t_calc.py, RILF and LILF are '''available in one .trk-file'''.]]
+| <img src="http://fnndsc.github.com/gfx/trkutils/RILF.png"><br>Tracks of the RILF structure segmented.
+| <img src="http://fnndsc.github.com/gfx/trkutils/LILF.png"><br>Tracks of the LILF structure segmented.
+| <img src="http://fnndsc.github.com/gfx/trkutils/sum.png"><br>After running t_calc.py, RILF and LILF are '''available in one .trk-file'''.
 |}
 
 === Subtract ===
@@ -87,9 +87,9 @@ To subtract the Corpus Callosum (CC.trk) from all fibers (COMPLETE.trk), the fol
 The screenshots show the results.
 
 {| class="wikitable" valign="top"
-| [[File:Start.png|thumb|left|300px|'''All fibers'''.]]
-| [[File:Cc.png|thumb|left|300px|Tracks of the '''CC structure''' segmented.]]
-| [[File:Result.png|thumb|left|300px|After running t_calc.py, the '''CC structure fibers were removed''' from all fibers.]]
+| <img src="http://fnndsc.github.com/gfx/trkutils/Start.png"><br>All fibers.
+| <img src="http://fnndsc.github.com/gfx/trkutils/Cc.png"><br>Tracks of the CC structure segmented.
+| <img src="http://fnndsc.github.com/gfx/trkutils/Result.png"><br>After running t_calc.py, the CC structure fibers were removed from all fibers.
 |}
 
 ''Note: This script runs multi-threaded but the subtraction is very computational expensive and can run longer than 10 minutes on large TrackVis files!''
@@ -155,8 +155,8 @@ Nov 11 14:16:45 ipmi ./t_transform.py[5291] All done!
 As a result, all tracks were moved. The screenshots show the re-positioning in TrackVis.
 
 {| class="wikitable" valign="top"
-| [[File:Transformbefore.png|thumb|left|300px|'''Before the transformation.''' The distance to the fixed pink sphere is small.]]
-| [[File:Transformafter.png|thumb|left|300px|'''After the transformation.''' The distance to the fixed pink sphere is larger even if the sphere did not move.]]
+| <img src="http://fnndsc.github.com/gfx/trkutils/Transformbefore.png"><br>'''Before the transformation.''' The distance to the fixed pink sphere is small.
+| <img src="http://fnndsc.github.com/gfx/trkutils/Transformafter.png"><br>'''After the transformation.''' The distance to the fixed pink sphere is larger even if the sphere did not move.
 |}
 
 ''Note: This script runs multi-threaded and is very fast - even on large TrackVis files.''
