@@ -1,20 +1,20 @@
-__NOTOC__
-= Some handy utilities for working with TrackVis (*.trk) files =
+Some handy utilities for working with TrackVis (*.trk) files
+=== 
 
-== t_info.py ==
-'''Display information for one or multiple TrackVis files.'''
+### t_info.py ###
+<b>Display information for one or multiple TrackVis files.</b>
 
 In the console, run the following:
 
- $> t_info.py TRACKFILE1
+    $> t_info.py TRACKFILE1
 
 or
 
- $> t_info.py TRACKFILE1 TRACKFILE2 TRACKFILE3...
+    $> t_info.py TRACKFILE1 TRACKFILE2 TRACKFILE3...
 
-'''Example:'''
+<b>Example:</b>
 
-To get information on the file '''/tmp/nocc4.trk''', do the following:
+To get information on the file <b>/tmp/nocc4.trk</b>, do the following:
 <pre>
 $>t_info.py /tmp/nocc4.trk
 Nov 07 16:44:42 shaka ./t_info.py[27028] FILE: /tmp/nocc4.trk
@@ -32,86 +32,76 @@ Nov 07 16:44:42 shaka ./t_info.py[27028]     [ -3.54145374e-03   1.58785917e-02 
 Nov 07 16:44:42 shaka ./t_info.py[27028]     [ 0.  0.  0.  1.]
 Nov 07 16:44:42 shaka ./t_info.py[27028]   VOXEL ORDER: LPS
 </pre>
-<br>
-<br>
-<br>
-<br>
 
-== t_calc.py ==
-'''Add or Subtract multiple TrackVis files.'''
+### t_calc.py ###
+<b>Add or Subtract multiple TrackVis files.</b>
 
-=== Add ===
-
-It is possible to add/merge different TrackVis files to one.
+It is possible to <b>add/merge</b> different TrackVis files to one.
 
 In the console, run the following to add TRACKFILE1 and TRACKFILE2 and write the result to TRACKFILE_RESULT:
 
- $> t_calc.py add -i TRACKFILE1 -i TRACKFILE2 -o TRACKFILE_RESULT
+    $> t_calc.py add -i TRACKFILE1 -i TRACKFILE2 -o TRACKFILE_RESULT
 
 It also works with more than two TrackVis files.
 
- $> t_calc.py add -i TRACKFILE1 -i TRACKFILE2 -i TRACKFILE3 -i TRACKFILE4 -o TRACKFILE_RESULT
+    $> t_calc.py add -i TRACKFILE1 -i TRACKFILE2 -i TRACKFILE3 -i TRACKFILE4 -o TRACKFILE_RESULT
 
-'''Example:'''
+<b>Example (Add):</b>
 
 To add the RILF.trk and LILF.trk structures from two different TrackVis files, the following command can be used:
 
- $> t_calc.py add -i RILF.trk -i LILF.trk -o sum.trk
+    $> t_calc.py add -i RILF.trk -i LILF.trk -o sum.trk
 
 The screenshots show the results.
 
-{| class="wikitable" valign="top"
-| <img src="http://fnndsc.github.com/gfx/trkutils/RILF.png"><br>Tracks of the RILF structure segmented.
-| <img src="http://fnndsc.github.com/gfx/trkutils/LILF.png"><br>Tracks of the LILF structure segmented.
-| <img src="http://fnndsc.github.com/gfx/trkutils/sum.png"><br>After running t_calc.py, RILF and LILF are '''available in one .trk-file'''.
-|}
 
-=== Subtract ===
+<img src="http://fnndsc.github.com/gfx/trkutils/RILF.png" width=250>&nbsp;&nbsp;&nbsp;
+<img src="http://fnndsc.github.com/gfx/trkutils/LILF.png" width=250> &nbsp;&nbsp;&nbsp;
+<img src="http://fnndsc.github.com/gfx/trkutils/Sum.png" width=250>
+<br>Tracks of the LILF and RILF structures segmented individually. After running t_calc.py, RILF and LILF are <b>available in one .trk-file</b>.
 
-It is possible to subtract TrackVis files from each other.
+
+It is possible to <b>subtract</b> TrackVis files from each other.
 
 In the console, run the following to subtract TRACKFILE2 from TRACKFILE1 and write the result to TRACKFILE_RESULT:
 
- $> t_calc.py sub -i TRACKFILE1 -i TRACKFILE2 -o TRACKFILE_RESULT
+    $> t_calc.py sub -i TRACKFILE1 -i TRACKFILE2 -o TRACKFILE_RESULT
 
 It also works with more than two TrackVis files. In this case TRACKFILE2, TRACKFILE3 and TRACKFILE4 get subtracted from TRACKFILE1. '''Please note that the order of the input files is very important! The 1st input file is the master where all other inputs get subtracted from.'''
 
- $> t_calc.py sub -i TRACKFILE1 -i TRACKFILE2 -i TRACKFILE3 -i TRACKFILE4 -o TRACKFILE_RESULT
+    $> t_calc.py sub -i TRACKFILE1 -i TRACKFILE2 -i TRACKFILE3 -i TRACKFILE4 -o TRACKFILE_RESULT
 
-'''Example:'''
+<b>Example (Subtract):</b>
 
 To subtract the Corpus Callosum (CC.trk) from all fibers (COMPLETE.trk), the following command can be used:
 
- $> t_calc.py sub -i COMPLETE.trk -i CC.trk -o COMPLETE_NO_CC.trk
+    $> t_calc.py sub -i COMPLETE.trk -i CC.trk -o COMPLETE_NO_CC.trk
 
 The screenshots show the results.
 
-{| class="wikitable" valign="top"
-| <img src="http://fnndsc.github.com/gfx/trkutils/Start.png"><br>All fibers.
-| <img src="http://fnndsc.github.com/gfx/trkutils/Cc.png"><br>Tracks of the CC structure segmented.
-| <img src="http://fnndsc.github.com/gfx/trkutils/Result.png"><br>After running t_calc.py, the CC structure fibers were removed from all fibers.
-|}
+<img src="http://fnndsc.github.com/gfx/trkutils/Start.png" width=250> &nbsp;&nbsp;&nbsp;
+<img src="http://fnndsc.github.com/gfx/trkutils/Cc.png" width=250>&nbsp;&nbsp;&nbsp;
+<img src="http://fnndsc.github.com/gfx/trkutils/Result.png" width=250>
 
-''Note: This script runs multi-threaded but the subtraction is very computational expensive and can run longer than 10 minutes on large TrackVis files!''
-<br>
-<br>
-<br>
-<br>
+<br>Whole-brain fibers and tracks of the CC structure segmented. After running t_calc.py, the CC structure fibers were <b>removed from all fibers</b>.
 
-== t_transform.py ==
-'''Transform (translate and/or rotate) all fibers in a TrackVis file.'''
+<i>Note: This script runs multi-threaded but the subtraction is very computational expensive and can run longer than 10 minutes on large TrackVis files!</i>
 
-''This script multiplies all fibers in a *.trk-file with a 4x4 matrix to re-position them. Therefore, it is possible to rotate and translate the fibers. Every TrackVis file stores a 4x4 matrix which includes the image voxel size, origin etc. and associates the image space to patient space. By using this script, this existing matrix gets multiplied with the new matrix in addition to the re-positioning of the fibers.''
+
+### t_transform.py ###
+<b>Transform (translate and/or rotate) all fibers in a TrackVis file.</b>
+
+<i>This script multiplies all fibers in a *.trk-file with a 4x4 matrix to re-position them. Therefore, it is possible to rotate and translate the fibers. Every TrackVis file stores a 4x4 matrix which includes the image voxel size, origin etc. and associates the image space to patient space. By using this script, this existing matrix gets multiplied with the new matrix in addition to the re-positioning of the fibers.</i>
 
 In the console, run the following to rep-position the fibers using a 4x4 MATRIX and write out a new TrackVis file.
 
- $> t_transform.py -i TRACKFILE1 -m MATRIX -o TRACKFILE_RESULT
+    $> t_transform.py -i TRACKFILE1 -m MATRIX -o TRACKFILE_RESULT
 
-'''Example:'''
+<b>Example:</b>
 
-We have an existing TrackVis file (complete.trk) and want to '''translate all fibers by the vector (100,100,100)'''. This means the result's fibers would all be moved in x-, y-, and z-direction by 100.
+We have an existing TrackVis file (complete.trk) and want to <b>translate all fibers by the vector (100,100,100)</b>. This means the result's fibers would all be moved in x-, y-, and z-direction by 100.
 
-The '''matrix can be created using a text editor''' and saved as a temporary file. In our case (translation) it should look like that:
+The <b>matrix can be created using a text editor</b> and saved as a temporary file. In our case (translation) it should look like that:
 
 <pre>
 $>cat /tmp/matrix.txt 
@@ -121,7 +111,7 @@ $>cat /tmp/matrix.txt
 0 0 0 1
 </pre>
 
-Now, we can run the '''t_transform.py''' command with the input TrackVis file ('''complete.trk'''), the matrix file ('''/tmp/matrix.txt''') and the output file ('''/tmp/output.trk''').
+Now, we can run the <b>t_transform.py</b> command with the input TrackVis file (<b>complete.trk</b>), the matrix file (<b>/tmp/matrix.txt</b>) and the output file (<b>/tmp/output.trk</b>).
 
 <pre>
 $>t_transform.py -i complete.trk -m /tmp/matrix.txt -o /tmp/output.trk
@@ -154,9 +144,8 @@ Nov 11 14:16:45 ipmi ./t_transform.py[5291] All done!
 
 As a result, all tracks were moved. The screenshots show the re-positioning in TrackVis.
 
-{| class="wikitable" valign="top"
-| <img src="http://fnndsc.github.com/gfx/trkutils/Transformbefore.png"><br>'''Before the transformation.''' The distance to the fixed pink sphere is small.
-| <img src="http://fnndsc.github.com/gfx/trkutils/Transformafter.png"><br>'''After the transformation.''' The distance to the fixed pink sphere is larger even if the sphere did not move.
-|}
+<img src="http://fnndsc.github.com/gfx/trkutils/Transformbefore.png" width=300>&nbsp;&nbsp;&nbsp;
+<img src="http://fnndsc.github.com/gfx/trkutils/Transformafter.png" width=300>
+<br><b>Before the transformation:</b> The distance to the fixed pink sphere is small. <b>After the transformation:</b> The distance to the fixed pink sphere is larger even if the sphere did not move.
 
-''Note: This script runs multi-threaded and is very fast - even on large TrackVis files.''
+<i>Note: This script runs multi-threaded and is very fast - even on large TrackVis files.</i>
