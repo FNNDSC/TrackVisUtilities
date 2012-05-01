@@ -149,3 +149,12 @@ As a result, all tracks were moved. The screenshots show the re-positioning in T
 <br><b>Before the transformation:</b> The distance to the fixed pink sphere is small. <b>After the transformation:</b> The distance to the fixed pink sphere is larger even if the sphere did not move.
 
 <i>Note: This script runs multi-threaded and is very fast - even on large TrackVis files.</i>
+
+
+### License ###
+Copyright (c) 2012 Fetal Neonatal Neuroimaging and Developmental Science Center, Children's Hospital Boston
+
+This code is licensed under the MIT License: http://www.opensource.org/licenses/mit-license.php
+
+<a href="http://childrenshospital.org/FNNDSC"><img src="http://xtk.github.com/chb_logo.jpg" alt="Children's Hospital Boston" title="Children's Hospital Boston"></a>
+<a href="http://hms.harvard.edu"><img src="http://xtk.github.com/hms_logo.jpg" alt="Harvard Medical School" title="Harvard Medical School"></a>
